@@ -1,0 +1,12 @@
+mixin clothingItem(imageSrc, altText, label)
+    div
+        picture
+            img(src=imageSrc, alt=altText)
+        p.abs_text= label
+
+mixin participantsItem(imageSrc, altText, label)
+    div
+        picture
+            img(src=imageSrc, alt=altText)
+        if(label)
+            p= label
