@@ -357,24 +357,25 @@ img
         grid-template-columns: repeat(4, 1fr)
 
 .participants_container
-    padding: 40rem 0
+    padding-top: 40rem 
+    padding-bottom: 40rem 
     +media(768)
         padding: 70rem 0
     h2
         padding-bottom: 40rem
     > p
-        max-width: 75vw
-        margin: 0 auto
         padding-bottom: 10rem
-        text-align: center
         font-weight: 400
         &:nth-child(3)
             padding-bottom: 30px
+        +media(768)
+            max-width: 75vw
+            text-align: center
             
     .grid
         padding-bottom: 20px
         div
-            padding: 26rem
+            padding: 16rem
             display: flex
             justify-content: center
             align-items: center
@@ -382,6 +383,8 @@ img
             flex-direction: column
             border-radius: $radius
             border: 1px solid $black
+            +media(768)
+                padding: 26rem
     picture
         display: inline-block
     img
@@ -400,13 +403,15 @@ img
             background-color: transparent
 .galery
     display: none
-    padding: 30px 0
     +media(1024)
         display: block
+.galery,
+.galery_mobile
+    padding-bottom: 30rem 
     h2
         padding-bottom: 50rem
     +media(1024)
-        padding: 70rem 0
+        padding-bottom: 70rem 
     img
         border-radius: $radius
     div
@@ -438,6 +443,7 @@ img
     .slider-container
         max-width: 70vw
         margin: 0 auto
+        margin-bottom: 20rem
     +media(1024)
         display: none
  
@@ -447,7 +453,7 @@ img
     top: 50%
     width: 8px
     height: 16px
-    transform: translateY(-300%)
+    transform: translateY(-200%)
 
 .left.slider_navigation
     left: 5%
@@ -455,7 +461,7 @@ img
 
 .right.slider_navigation
     right: 5%
-    transform: translateY(-300%) scaleX(-1)
+    transform: translateY(-200%) scaleX(-1)
     background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2211%22%20height%3D%2218%22%20viewBox%3D%220%200%2011%2018%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M10%2017L2%209L10%201%22%20stroke%3D%22%23222222%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E")
 
 
