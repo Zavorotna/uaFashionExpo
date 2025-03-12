@@ -14,13 +14,17 @@ header
     z-index: 5
     > div
         position: relative
-.logo
-    display: none
-    +media(1024)
-        display: block
-
+// .logo
+//     display: none
+//     +media(1024)
+//         display: block
+.logo_mobile 
+    position: relative
+    padding: 20rem 20rem 0
 .logo,
 .logo_mobile
+    img
+        max-width: 150rem
     a
         column-gap: 8rem
         color: $black
@@ -50,7 +54,6 @@ header
     right: -100%
     width: 80vw
     height: 100vh
-    padding: 20px
     z-index: 10
     background-color: $white
     transition: all .5s ease
@@ -60,7 +63,29 @@ header
         height: auto
         padding: 0
         z-index: 0
+    .cta_container
+        padding: 0 20rem
+        +media(1024)
+            display: none
+    .cta
+        padding: 25rem 18rem
+    .border_cta
+        color: $blue
+        background-color: transparent
+.mobile_contacts_menu
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    padding: 40rem 20rem
+    a
+        gap: 8rem
+        color: $white
+        margin-bottom: 10rem
+    +media(1024)
+        display: none
 .menu
+    padding: 25rem 20rem
     color: $black
     text-transform: uppercase
     +media(1024)
@@ -70,15 +95,23 @@ header
     a
         position: relative
         display: block
-        font-size: 16rem
+        font-size: 16px
+        padding: 5rem 0
         line-height: 2em
         color: $black
+        border-bottom: 1px solid $black
+        &:hover
+            color: $white
+            background-color: $blue
         +media(1024)
+            border: none
+            padding: 0
             text-align: center
             line-height: 1em
+            &:hover
+                color: $blue
+                background-color: transparent
         +media(1300)
-        &:hover
-            color: $blue
 .mobile_contacts 
     a
         display: flex
@@ -119,7 +152,7 @@ header
 
 a.cancel 
     position: absolute
-    top: 20px
+    top: 30px
     right: 20px
     cursor: pointer
     +media(1024)
@@ -135,9 +168,119 @@ a.cancel
         color: $black
         font-size: 16rem
         &:first-child
-            padding-bottom: 15rem
+            +media(1024)
+                padding-bottom: 15rem
         &:nth-child(2) 
             display: none
             +media(1024)
                 display: flex 
 
+.col-2
+    +media(768)
+        grid-template-columns: repeat(2, 1fr)
+
+
+.zaproshenia,
+.zaproshenia_inst
+    position: relative
+    padding: 30rem 0
+    height: 125vh
+    +media(425)
+        height: 110vw
+    +media(768)
+        height: auto
+        padding: 50rem 0 50rem 30rem
+    +media(1440)
+        padding: 100rem 0 100rem 30rem
+    &::before
+        content: ""
+        position: absolute
+        bottom: 0
+        width: 100%
+        height: 40%
+        background: url(../img/store.jpg) no-repeat 35%/cover
+        +media(768)
+            top: 0
+            width: 45vw
+            height: 100%
+.zaproshenia
+    &::before
+        left: 0
+
+.zaproshenia_inst
+    height: 105vh
+    &::before
+        right: 0
+        background: url(../img/ins_block.jpg) no-repeat 35%/cover
+.text_container
+    h2
+        text-align: left
+        padding-bottom: 30rem
+    p
+        font-weight: 400
+        margin-bottom: 15rem
+        &:last-child
+            margin-bottom: 50rem
+
+section.skheme
+    padding: 70rem 0
+    .flex
+        gap: 20rem
+    > .flex
+        flex-wrap: wrap
+        padding: 32rem 0 26rem
+        +media(768)
+            justify-content: center
+    h3
+        padding-bottom: 18rem
+        font-weight: 600
+
+.adress_container
+    max-width: 450px
+
+.map
+    position: relative
+    min-height: 500rem
+    border-radius: $radius
+    overflow: hidden
+    iframe
+        position: absolute
+        top: -72px
+        left: 0
+        border: none
+        width: 100%
+        height: 130%
+
+.partners_bottom
+    +media(768)
+        border-top: 1px solid $black
+        border-bottom: 1px solid $black
+.col_2_partners
+    h2
+        padding: 30rem 0
+        color: $blue
+        +media(768)
+            padding: 70rem 0
+    +media(768)
+        grid-template-columns: 20vw 60vw
+.partner_col
+    border-right: 1px solid $black
+    grid-template-columns: repeat(3, 1fr)
+    div
+        display: flex
+        align-items: center
+        justify-content: center
+        border-top: 1px solid $black
+        border-left: 1px solid $black
+        &:first-child,
+        &:last-child
+            background-color: $black
+        img
+            display: inline-block
+            max-height: 10vh
+            width: 100%
+            height: 100%
+            object-fit: contain
+    +media(768)
+        grid-template-columns: repeat(3, 1fr)
+        border-left: 1px solid $black

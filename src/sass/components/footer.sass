@@ -1,58 +1,42 @@
 .footer
-    padding: 50px 0
+    padding: 50rem 0
+    +media(768)
+        display: flex
+        gap: 30rem
+        justify-content: space-between
+    svg
+        width: 20rem
+        height: 20rem
     a
         color: $white
-        
-    +media(768)
-        grid-template-columns: repeat(4, 1fr)
-    .menu_footer
-        display: block
-        a
-            position: relative
-            display: inline-block
-            font-size: 12px
-            text-align: left
-            text-transform: uppercase
-            +media(768)
-                padding-bottom: 15px
-            &::before
-                content: ""
-                position: absolute
-                left: 0
-                bottom: 5px
-                width: 0
-                height: 1px
-                background-color: $white
-                transition: all .5s ease
-            &:hover
-                text-shadow: 0 0 1px
-                &::before
-                    width: 100%
     h3
-        padding-bottom: 30rem
-        font-size: 18px
-        font-weight: 500
+        padding-bottom: 25px
+        font-size: 16px
+        font-weight: 600
         text-transform: uppercase
-    .logo
-        a
-            justify-content: flex-start
-            +media(768)
-                justify-content: space-between
-.contact_footer
-    p
-        margin-bottom: 20rem
+
+.footer_info
+    padding-bottom: 30px
+    +media(768)
+        padding-bottom: 0
+        width: 30vw
+    p, a
+        margin-bottom: 10rem
+        column-gap: 10px
+    
+.adress 
+    svg
+        width: 30rem
+        height: 30rem
+.logo_footer
+    padding-bottom: 50rem
+    max-width: 70vw
+    +media(768)
+        max-width: 20vw
+    img
+        object-fit: cover
+.privacy
     a
-        transition: all .5 ease
-        &:hover
-            transform: scale(1.05)
-.social_footer
-    a
-        transition: all .5 ease
-        &:hover
-            transform: scale(1.05)
-.privacyPolice
-    display: block
-    font-size: 12px
-    font-weight: 700
-    text-decoration: underline
-    padding: 30rem 0 13rem
+        display: inline-block
+        text-decoration: underline
+        margin-bottom: 10rem
