@@ -1,5 +1,6 @@
 @import components/mixins
 @import components/var
+@import components/header
 
 *
     margin: 0
@@ -19,10 +20,22 @@ body
     font-weight: 500
     font-family: Montserrat
 
+h1
+    padding: 30rem 0
+    font-size: 45rem
+    font-weight: 700
+    +media(1024)
+        padding: 40rem 0
+        font-size: 90rem
+
 h2
-    font-size: 36px
+    font-size: 20px
     font-weight: 600
     text-transform: uppercase
+    text-align: center
+    +media(768)
+        font-size: 36rem
+
 
 ul
     list-style: none
@@ -46,7 +59,7 @@ textarea
     padding: 0 15rem
     +media(768)
         width: 90%
-        
+
 .text_center
     text-align: center
 
@@ -55,16 +68,13 @@ textarea
 
 .flex
     display: flex
-    gap: 20rem
 
 .flex-between
     display: flex
-    gap: 20rem
     justify-content: space-between
 
 .grid
     display: grid
-    gap: 20rem
 
 .items-center
     align-items: center
@@ -89,6 +99,7 @@ img
     background-color: rgba(0, 0, 0, 0.3)
     backdrop-filter: blur(4px)
     z-index: 3
+
 .gallery 
     min-height: 80vh
     grid-template-columns: repeat(3, 1fr)
@@ -98,19 +109,356 @@ img
     background-color: #ccc
     border: 1px solid #000
 
+.main_container
+    position: relative
+    padding: 45px 0
+    color: $white
+    background: $black url(../img/main_bg.jpg) no-repeat center/cover
+    display: flex
+    flex-direction: column
+    justify-content: center
+    +media(768)
+        min-height: 70vh
+        padding: 150rem 0
+.mask
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
 
-.large 
-    grid-column: span 3
-    grid-row: span 1
+.mask_bg
+    background: linear-gradient(270deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.80) 100%)
+    backdrop-filter: blur(1px)
 
 
-.medium 
-    grid-column: span 1
-    grid-row: span 2
+.text_main_container
+    position: relative
+    z-index: 2
+    +media(1024)
+        max-width: 70vw
+    > p
+        font-size: 12px
+        font-weight: 400
+        +media(768)
+            font-size: 26rem
+        &:nth-child(3)
+            padding-bottom: 50rem
+            +media(768)
+                padding-bottom: 78rem
+            
+.header_one
+    font-size: 16rem
+    text-transform: uppercase
+    +media(768)
+        font-size: 30rem
+
+.cta_container
+    +media(768)
+        display: flex
+        flex-wrap: wrap
+        gap: 30rem
+.cta
+    display: block
+    max-height: 60px
+    margin-bottom: 20rem
+    padding: 22px 38px
+    color: $white
+    text-align: center
+    font-size: 14px
+    font-weight: 700
+    line-height: 1em
+    letter-spacing: 0.28px
+    text-transform: uppercase
+    border-radius: $radius
+    +media(768)
+        max-width: 260px
+
+.blue_cta
+    background-color: $blue
+    &:hover
+        background-color: $darkblue 
+
+.border_cta
+    border-radius: $radius
+    border: 2px solid $blue
+    background: rgba(0, 0, 0, 0.20)
+    &:hover
+        background-color: $blue
+
+.date_container
+    display: none
+    padding-top: 150rem
+    +media(768)
+        display: flex
+    p
+        column-gap: 10rem     
+        font-size: 16rem   
+
+.count_container
+    text-align: center
+    padding: 20rem 0
+    > div
+        flex-wrap: wrap
+        justify-content: center
+        +media(1024)
+            justify-content: space-between
+    +media(768)
+        text-align: left
+    p
+        padding-bottom: 10rem
+        color: $blue
+        font-size: 25rem
+        font-weight: 600
+        text-transform: uppercase
+        +media(768)
+            font-size: 30rem
+        +media(1440)
+            font-size: 36rem
+.count
+    +media(1024)
+        padding: 0 30rem
+    p
+        line-height: 1em
+        min-width: 80px
+        text-align: center
+        color: $black
+        +media(768)
+            min-width: 120px    
+        span
+            &:last-child
+                display: block
+                padding: 0 15rem
+                font-size: 16rem
+                +media(768)
+                    padding: 0 45rem
+    p + p
+        border-left: 1px solid $black
+
+.mobile_inst
+    padding: 47rem 0 0 0
+    p
+        font-size: 12px
+        text-transform: uppercase
+        gap: 15px
+        justify-content: center
+        a
+            text-transform: none
+            color: $white
+            gap: 5px
+
+.pad-100
+    padding: 40rem 0
+    h2 
+        +media(1024)
+            text-align: left
+    +media(768)
+        padding: 100rem 0
+
+.main_text
+    padding-bottom: 33rem
+    +media(768)
+        padding-bottom: 0
+    +media(1024)
+        width: 60vw
+
+.meta
+    flex-wrap: wrap
+    column-gap: 100rem
+    +media(1024)
+        flex-wrap: nowrap
+    h2
+        padding-bottom: 26rem
+    p
+        padding-bottom: 18px
+    .flex
+        column-gap: 30rem
+        padding-top: 32rem
+        .cta_bg
+            background: rgba(255, 255, 255, 0.20)
+            &:hover
+                background-color: $black
+.specifical
+    li.flex
+        flex-wrap: nowrap
+        column-gap: 20rem
+        padding: 0 0 21rem 0
+        margin-bottom: 21rem
+        border-bottom: 1px solid $blue
+        svg
+            min-width: 50px
 
 
-.small 
-    grid-column: span 1
-    grid-row: span 1
+.main_info
+    padding: 30px 0
+    +media(768)
+        padding: 70rem 0
+    h2
+        padding-bottom: 35rem
+        text-align: center
 
+.hidden_text
+    position: relative
+    padding-bottom: 30px
+    max-height: 55vh
+    overflow: hidden
+    transition: max-height 0.5s ease-in-out
+    &.expanded 
+        max-height: 2000px    
+    p
+        padding-bottom: 10rem
+        text-overflow: ellipsis
+        font-weight: 400
+
+.hidden_mask
+    z-index: 3
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.40) 45%, #FFF 88%)
+    transition: opacity 0.3s ease-in-out
+    .expanded & 
+        opacity: 0
+        pointer-events: none
+
+.readAll
+    margin: 0 auto
+    width: 260px
+    text-align: center
+
+.category_products
+    div
+        position: relative
+        border-radius: $radius
+        overflow: hidden
+        z-index: 0
+        &:hover 
+            > picture > img
+                display: inline-block
+                transform: scale(1.1)
+        img
+            transition: all .5s ease
+        p
+            position: absolute
+            left: 50%
+            bottom: 10px
+            color: $white
+            text-transform: uppercase
+            transform: translateX(-50%)
+            z-index: 5
+        .category_mask
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.70) 100%)
+            z-index: 4
+    h2
+        padding-bottom: 15px
+        +media(768)
+            padding-bottom: 48rem
+.col-4 
+    gap: 10px
+    grid-template-columns: repeat(2, 1fr)
+    +media(600)
+        grid-template-columns: repeat(4, 1fr)
+
+.participants_container
+    padding: 40rem 0
+    +media(768)
+        padding: 70rem 0
+    h2
+        padding-bottom: 40rem
+    > p
+        max-width: 75vw
+        margin: 0 auto
+        padding-bottom: 10rem
+        text-align: center
+        font-weight: 400
+        &:nth-child(3)
+            padding-bottom: 30px
+            
+    .grid
+        padding-bottom: 20px
+        div
+            padding: 26rem
+            display: flex
+            justify-content: center
+            align-items: center
+            align-content: space-between
+            flex-direction: column
+            border-radius: $radius
+            border: 1px solid $black
+    picture
+        display: inline-block
+    img
+        min-width: 112px
+        max-height: 57rem
+        width: 100%
+        object-fit: contain
+        object-position: center
+        +media(768)
+            max-width: 15vw
+            min-height: 135px
+    .cta_container
+        justify-content: center
+        .border_cta
+            color: $blue
+            background-color: transparent
+.galery
+    display: none
+    padding: 30px 0
+    +media(1024)
+        display: block
+    h2
+        padding-bottom: 50rem
+    +media(1024)
+        padding: 70rem 0
+    img
+        border-radius: $radius
+    div
+        gap: 30px
+    .cta_container
+        justify-content: center
+        a
+            &:hover
+                background-color: $darkblue
+.col-3
+    +media(1024)
+        grid-template-columns: repeat(3, 1fr)
+.item_large
+    +media(1024)
+        margin-bottom: 30px
+        height: 40vh  
+.item_medium,
+.item_small
+    +media(1024)
+        margin-bottom: 30px
+        height: 25vh
+
+.small_cont
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+
+.galery_mobile
+    position: relative
+    .slider-container
+        max-width: 70vw
+        margin: 0 auto
+    +media(1024)
+        display: none
+ 
+.left.slider_navigation,
+.right.slider_navigation
+    position: absolute
+    top: 50%
+    width: 8px
+    height: 16px
+    transform: translateY(-300%)
+
+.left.slider_navigation
+    left: 5%
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2211%22%20height%3D%2218%22%20viewBox%3D%220%200%2011%2018%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M10%2017L2%209L10%201%22%20stroke%3D%22%23222222%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E")
+
+.right.slider_navigation
+    right: 5%
+    transform: translateY(-300%) scaleX(-1)
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2211%22%20height%3D%2218%22%20viewBox%3D%220%200%2011%2018%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M10%2017L2%209L10%201%22%20stroke%3D%22%23222222%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E")
+
+
+
+@import components/info
 @import components/footer
