@@ -8,10 +8,12 @@ header
     top: 0
     left: 0
     width: 100%
-    padding: 28rem 0
+    padding: 20rem 0
     border-bottom: 2px solid $blue
     background-color: $white
     z-index: 5
+    +media(1440)
+        padding: 20rem 0
     > div
         position: relative
 // .logo
@@ -21,10 +23,17 @@ header
 .logo_mobile 
     position: relative
     padding: 20rem 20rem 0
+.logo
+    +media(768)
+        img
+            max-width: 180rem
+    +media(1440)
+        img
+            max-width: 190px
 .logo,
 .logo_mobile
     img
-        max-width: 150rem
+        max-width: 140rem
     a
         column-gap: 8rem
         color: $black

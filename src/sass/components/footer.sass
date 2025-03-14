@@ -1,9 +1,10 @@
 .footer
     padding: 50rem 0
     +media(768)
-        display: flex
+        display: grid
         gap: 30rem
-        justify-content: space-between
+        // justify-content: space-between
+        grid-template-columns: repeat(3, 1fr)
     a
         color: $white
     h3
@@ -13,23 +14,24 @@
         text-transform: uppercase
 
 .footer_info
+    font-size: 16rem
     padding-bottom: 30px
     &:last-child
-        text-align: right
         +media(768)
+            text-align: right
             width: 20vw
     +media(768)
         padding-bottom: 0
-        width: 30vw
     p, a
         margin-bottom: 10rem
         column-gap: 10px
     
 .logo_footer
+    display: inline-block
     padding-bottom: 50rem
     max-width: 70vw
     +media(768)
-        max-width: 20vw
+        max-width: 254px
     img
         object-fit: cover
 .privacy
@@ -97,7 +99,9 @@
             object-fit: contain
     +media(768)
         // border-left: 1px solid $black
-
+.adress
+    span
+        max-width: 260px
 .privacy_page
     padding-bottom: 70rem
     h1
