@@ -139,6 +139,8 @@ img
     position: relative
     z-index: 2
     +media(1024)
+        max-width: 55vw
+    +media(1440)
         max-width: 803px
     > p
         font-size: 12px
@@ -198,7 +200,7 @@ img
 .date_container
     display: none
     padding-top: 150rem
-    +media(768)
+    +media(1024)
         display: flex
         column-gap: 50rem
     p
