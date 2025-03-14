@@ -10,6 +10,92 @@ html(lang="en")
         title UA Fashion Expo - Зустріньтесь з виробниками на спеціалізованій виставці та побачте нові колекції першими.
     body 
         include components/mixins
+        .popup_customers.popup
+            h2 забронювати стенд
+            .cancel_popup_cust 
+                a(href="#")
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                        <path d="M1 21L20.5816 1M21 21L1.41844 1" stroke="#121212" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg> 
+            form(action="sendcustomers.php" method="post")
+                .grid.col-2
+                    label
+                        | Назва компанії*
+                        input(type="text" name="company" required)
+                    label  
+                        | Країна/місто*
+                        input(type='text' name='city' minlength='3' maxlength='30' required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐs]/g, '')")
+                .grid.col-2
+                    label(for='name')  
+                        | Контактна особа*
+                        input#name(type='text' name='userName' minlength='3' maxlength='30' required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐs]/g, '')")
+                    label(for='phone') Телефон*
+                        input.phoneInput.inputMask(type='tel' name='userPhone' required maxlength='13')
+                .grid.col-2
+                    label
+                        | E-mail*
+                        input(type="text" name="email" required)
+                    label
+                        | Код ЄДРПОУ*
+                        input(type="text" name="code" required)
+                p 
+                    label
+                        | Номер свідоцтва платника податку*
+                        input(type="text" name="city" required)
+                p 
+                    label
+                        | Продукція, яка буде представлена*
+                        input(type="text" name="city" required)
+                .grid.col-2
+                    .radio_btn 
+                        p Тип площі:
+                        label
+                            input(type="radio", name="ploshcha" value="обладнана площа")
+                            | обладнана площа
+                        label
+                            input(type="radio", name="ploshcha" value="не обладнана площа")
+                            | не обладнана площа
+                    p 
+                        label
+                            | Бажана квадратура стенду м2*
+                            input(type="text" name="stend" required)
+                p.flex.items-center 
+                    label
+                        input(type="checkbox", name="")
+                        | Даю згоду на обробку персональних даних
+                button(type="submit").cta.blue_cta відправити
+
+        .popup_visitors.popup
+            h2 Відвідати виставку
+            .cancel_popup_vis
+                a(href="#")
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                        <path d="M1 21L20.5816 1M21 21L1.41844 1" stroke="#121212" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+            form(action="sendvisitors.php" method="post") 
+                .grid.col-2
+                    label
+                        | Прізвище*
+                        input(type="text" name="surname" required)
+                    label(for='name')  
+                        | Імʼя*
+                        input#name(type='text' name='userName' minlength='3' maxlength='30' required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐs]/g, '')")
+                .grid.col-2
+                    label(for='phone') Телефон*
+                        input.phoneInput.inputMask(type='tel' name='userPhone' required maxlength='13')
+                    label
+                        | E-mail*
+                        input(type="text" name="email" required)
+                p 
+                    label
+                        | Місто/селище*
+                        input(type="text" name="city" required)
+                p.flex.items-center 
+                    label
+                        input(type="checkbox", name="")
+                        | Даю згоду на обробку персональних даних
+                button(type="submit").cta.blue_cta відправити
+
         include components/header
         main 
             section.main_container
