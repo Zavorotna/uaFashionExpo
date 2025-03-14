@@ -213,6 +213,8 @@ a.cancel
     &::before
         right: 0
         background: url(../img/ins_block.jpg) no-repeat 35%/cover
+    .text_container
+        max-width: 705px
 .text_container
     h2
         text-align: left
@@ -220,8 +222,9 @@ a.cancel
     p
         font-weight: 400
         margin-bottom: 15rem
-        &:last-child
+        &:nth-child(3)
             margin-bottom: 50rem
+    
 
 section.skheme
     padding: 70rem 0
@@ -251,35 +254,3 @@ section.skheme
         width: 100%
         height: 130%
 
-.partners_bottom
-    +media(768)
-        border-top: 1px solid $black
-        border-bottom: 1px solid $black
-.col_2_partners
-    h2
-        padding: 30rem 0
-        color: $blue
-        +media(768)
-            padding: 70rem 0
-    +media(768)
-        grid-template-columns: 20vw 60vw
-.partner_col
-    border-right: 1px solid $black
-    grid-template-columns: repeat(3, 1fr)
-    div
-        display: flex
-        align-items: center
-        justify-content: center
-        border-top: 1px solid $black
-        border-left: 1px solid $white
-        background-color: $black
-        img
-            display: inline-block
-            max-height: 10vh
-            padding: 5rem
-            width: 100%
-            height: 100%
-            object-fit: contain
-    +media(768)
-        grid-template-columns: repeat(3, 1fr)
-        border-left: 1px solid $black

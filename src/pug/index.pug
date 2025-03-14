@@ -379,10 +379,12 @@ html(lang="en")
             section.partners_bottom 
                 .wrapper.grid.col_2_partners
                     h2 партнери:
-                    .grid.partner_col
-                        +participantsItem("img/arena_expo_shoes_white.png")
-                        +participantsItem("img/Arena_lviv.png")
-                        +participantsItem("img/ukrane_fashion_store_white.png")
+                    div.partners_block
+                        div.flex.partner_col
+                            +participantsItem("img/arena_expo_shoes_white.png")
+                            +participantsItem("img/Arena_lviv.png")
+                            +participantsItem("img/ukrane_fashion_store_white.png")
+                        div.flex.partner_col
 
         include components/footer
         script(src="js/scripts.js") 

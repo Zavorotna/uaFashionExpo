@@ -12,8 +12,6 @@ html
     scroll-behavior: smooth
     +media(1250)
         font-size: 1px
-    +media(1600)
-        font-size: 1.2px
 
 body
     position: relative
@@ -60,6 +58,9 @@ textarea
     padding: 0 15rem
     +media(768)
         width: 90%
+    +media(1520)
+        max-width: 1520px
+        margin: 0 auto
 
 .text_center
     text-align: center
@@ -119,8 +120,9 @@ img
     flex-direction: column
     justify-content: center
     +media(768)
-        min-height: 70vh
+        max-height: 863px
         padding: 150rem 0
+    
 .mask
     position: absolute
     top: 0
@@ -137,7 +139,7 @@ img
     position: relative
     z-index: 2
     +media(1024)
-        max-width: 70vw
+        max-width: 803px
     > p
         font-size: 12px
         font-weight: 400
@@ -265,10 +267,12 @@ img
 
 .main_text
     padding-bottom: 33rem
+    p
+        font-weight: 400
     +media(768)
         padding-bottom: 0
     +media(1024)
-        width: 60vw
+        width: 742px
 
 .meta
     flex-wrap: wrap
@@ -311,7 +315,8 @@ img
 .hidden_text
     position: relative
     padding-bottom: 30px
-    max-height: 50vh
+    max-height: 339px
+    font-weight: 400
     overflow: hidden
     transition: max-height 0.5s ease-in-out
     &.expanded 
@@ -349,7 +354,8 @@ img
         p
             position: absolute
             left: 50%
-            bottom: 10px
+            bottom: 36rem
+            font-size: 30rem
             color: $white
             text-transform: uppercase
             transform: translateX(-50%)
@@ -361,6 +367,11 @@ img
         padding-bottom: 15px
         +media(768)
             padding-bottom: 48rem
+
+.catecory_card
+    max-width: 358px
+    max-height: 400px
+
 .col-4 
     gap: 10px
     grid-template-columns: repeat(2, 1fr)
@@ -449,12 +460,16 @@ img
 .item_large
     +media(1024)
         margin-bottom: 30px
-        height: 40vh  
+        height: 50vh
+    +media(1520)
+        height: 487rem
 .item_medium,
 .item_small
     +media(1024)
         margin-bottom: 30px
-        height: 25vh
+        height: 20vw
+    +media(1520)
+        height: 315rem
 
 .small_cont
     display: grid
