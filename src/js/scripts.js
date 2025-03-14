@@ -26,6 +26,43 @@ document.addEventListener("DOMContentLoaded", function () {
     dark.addEventListener("click", cancelBurger)
   }
 
+  const visitorsBtn = document.querySelectorAll(".visitors"),
+    dark = document.querySelector(".dark-bgc-popup"),
+    cancelVisBtn = document.querySelector(".cancel_popup_vis"),
+    popupVisitor = document.querySelector(".popup_visitors")
+
+    visitorsBtn.forEach(itemVisitor => {
+      itemVisitor.addEventListener("click", function(e) {
+        e.preventDefault()
+        popupVisitor.style.display = "block"
+        dark.style.display = "block"
+      })
+    })
+
+    cancelVisBtn.addEventListener("click", function(e) {
+      e.preventDefault()
+      popupVisitor.style.display = "none"
+      dark.style.display = "none"
+    })
+
+  const customersBtn = document.querySelectorAll(".customers"),
+    cancelcustBtn = document.querySelector(".cancel_popup_cust"),
+    popupcustomer = document.querySelector(".popup_customers")
+
+    customersBtn.forEach(itemCust => {
+      itemCust.addEventListener("click", function(e) {
+        e.preventDefault()
+        popupcustomer.style.display = "block"
+        dark.style.display = "block"
+      })
+    })
+
+    cancelcustBtn.addEventListener("click", function(e) {
+      e.preventDefault()
+      popupcustomer.style.display = "none"
+      dark.style.display = "none"
+    })
+
   // випадаючі блоки з інформацією
   function toggleVisibility(buttons, visibleClass, activeClass) {
     buttons.forEach((item) => {
