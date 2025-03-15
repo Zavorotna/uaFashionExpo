@@ -1,8 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
+  //privacy
+  const privacy = document.querySelector(".privacy_page"),
+    privacyBtn = document.querySelector(".privacyPolice")
+
+  privacyBtn.addEventListener("click", function (e) {
+    e.preventDefault()
+    privacy.style.display = "block"
+    dark.style.display = "block"
+  })
+
   // burger
+  let dark
   if (document.querySelector(".burger")) {
-    const dark = document.querySelector(".dark-bgc"),
-      burger = document.querySelector(".burger"),
+    dark = document.querySelector(".dark-bgc")
+    const burger = document.querySelector(".burger"),
       menu = document.querySelector(".nav"),
       cancel = document.querySelector(".cancel"),
       listItem = menu.querySelectorAll("a")
@@ -15,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function cancelBurger() {
       menu.style.right = "-100%";
       dark.style.display = "none"
+      privacy.style.display = "none"
     }
     listItem.forEach(item => {
       item.addEventListener("click", cancelBurger)
@@ -27,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const visitorsBtn = document.querySelectorAll(".visitors"),
-    dark = document.querySelector(".dark-bgc-popup"),
+    darkPopup = document.querySelector(".dark-bgc-popup"),
     cancelVisBtn = document.querySelector(".cancel_popup_vis"),
     popupVisitor = document.querySelector(".popup_visitors")
 
@@ -35,14 +47,14 @@ document.addEventListener("DOMContentLoaded", function () {
     itemVisitor.addEventListener("click", function (e) {
       e.preventDefault()
       popupVisitor.style.display = "block"
-      dark.style.display = "block"
+      darkPopup.style.display = "block"
     })
   })
 
   cancelVisBtn.addEventListener("click", function (e) {
     e.preventDefault()
     popupVisitor.style.display = "none"
-    dark.style.display = "none"
+    darkPopup.style.display = "none"
   })
 
   const customersBtn = document.querySelectorAll(".customers"),
@@ -53,15 +65,19 @@ document.addEventListener("DOMContentLoaded", function () {
     itemCust.addEventListener("click", function (e) {
       e.preventDefault()
       popupcustomer.style.display = "block"
-      dark.style.display = "block"
+      darkPopup.style.display = "block"
     })
   })
 
   cancelcustBtn.addEventListener("click", function (e) {
     e.preventDefault()
     popupcustomer.style.display = "none"
+    darkPopup.style.display = "none"
     dark.style.display = "none"
+    privacy.style.display = "none"
   })
+
+
 
   // випадаючі блоки з інформацією
   function toggleVisibility(buttons, visibleClass, activeClass) {
@@ -604,7 +620,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Перевірка всіх полів e-mail
   const emailInputs = document.querySelectorAll("input[name='email']"),
-  emailPattern = /^[a-zA-Z][a-zA-Z0-9_-]+[a-zA-Z0-9]@([a-z_-]+(\.\w+)?(\.\w{2,3}))$/;
+    emailPattern = /^[a-zA-Z][a-zA-Z0-9_-]+[a-zA-Z0-9]@([a-z_-]+(\.\w+)?(\.\w{2,3}))$/;
 
   emailInputs.forEach(input => {
     input.addEventListener("input", function (e) {

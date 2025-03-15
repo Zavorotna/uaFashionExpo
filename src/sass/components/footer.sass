@@ -113,10 +113,33 @@
     span
         max-width: 260px
 .privacy_page
+    display: none
+    position: fixed
+    top: 50%
+    left: 50%
+    width: 90vw
+    height: 70vh
+    background-color: #fff
     padding-bottom: 70rem
+    transform: translate(-50%, -50%)
+    z-index: 20
+    overflow: auto
+    +media(1024)
+        width: 70vw
+        height: 50vw
+
+    &::-webkit-scrollbar 
+        width: 8rem
+        height: 100%
+        border-radius: 3rem
+        background-color: #ccc
+
+    &::-webkit-scrollbar-thumb 
+        border-radius: 3rem
+        background-color: $blue
     h1
         padding-bottom: 20rem
-        font-size: 36px
+        font-size: 36rem
         font-weight: 600
         text-align: center
     p

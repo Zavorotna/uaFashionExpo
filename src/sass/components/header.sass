@@ -194,34 +194,36 @@ a.cancel
 .zaproshenia_inst
     position: relative
     padding: 30rem 0
-    height: 77vh
-    +media(425)
-        height: 110vw
     +media(768)
-        height: auto
         padding: 50rem 0 50rem 30rem
-    +media(1440)
-        padding: 100rem 0 100rem 30rem
-    &::before
-        content: ""
-        position: absolute
-        bottom: 0
-        width: 100%
-        height: 40%
-        background: url(../img/store.jpg) no-repeat 35%/cover
-        +media(768)
+        &::before
+            content: ""
+            position: absolute
             top: 0
             width: 45vw
             height: 100%
+            background: url(../img/store.jpg) no-repeat 35%/cover
+    +media(1440)
+        padding: 100rem 0 100rem 30rem
+
+.bgc_container,
+.bgc_container_inst
+    min-height: 50vh
+    background: url(../img/store.jpg) no-repeat 35%/cover
+    +media(768)
+        display: none
+.bgc_container_inst
+    background: url(../img/ins_block.jpg) no-repeat 35%/cover
+
 .zaproshenia
     &::before
         left: 0
 
 .zaproshenia_inst
-    height: 65vh
-    &::before
-        right: 0
-        background: url(../img/ins_block.jpg) no-repeat 35%/cover
+    +media(768)
+        &::before
+            right: 0
+            background: url(../img/ins_block.jpg) no-repeat 35%/cover
     .text_container
         max-width: 705px
 .text_container
