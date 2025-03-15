@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     listItem.forEach(item => {
       item.addEventListener("click", cancelBurger)
     })
-    cancel.addEventListener("click", function(e) {
+    cancel.addEventListener("click", function (e) {
       e.preventDefault()
       cancelBurger()
     })
@@ -31,37 +31,37 @@ document.addEventListener("DOMContentLoaded", function () {
     cancelVisBtn = document.querySelector(".cancel_popup_vis"),
     popupVisitor = document.querySelector(".popup_visitors")
 
-    visitorsBtn.forEach(itemVisitor => {
-      itemVisitor.addEventListener("click", function(e) {
-        e.preventDefault()
-        popupVisitor.style.display = "block"
-        dark.style.display = "block"
-      })
-    })
-
-    cancelVisBtn.addEventListener("click", function(e) {
+  visitorsBtn.forEach(itemVisitor => {
+    itemVisitor.addEventListener("click", function (e) {
       e.preventDefault()
-      popupVisitor.style.display = "none"
-      dark.style.display = "none"
+      popupVisitor.style.display = "block"
+      dark.style.display = "block"
     })
+  })
+
+  cancelVisBtn.addEventListener("click", function (e) {
+    e.preventDefault()
+    popupVisitor.style.display = "none"
+    dark.style.display = "none"
+  })
 
   const customersBtn = document.querySelectorAll(".customers"),
     cancelcustBtn = document.querySelector(".cancel_popup_cust"),
     popupcustomer = document.querySelector(".popup_customers")
 
-    customersBtn.forEach(itemCust => {
-      itemCust.addEventListener("click", function(e) {
-        e.preventDefault()
-        popupcustomer.style.display = "block"
-        dark.style.display = "block"
-      })
-    })
-
-    cancelcustBtn.addEventListener("click", function(e) {
+  customersBtn.forEach(itemCust => {
+    itemCust.addEventListener("click", function (e) {
       e.preventDefault()
-      popupcustomer.style.display = "none"
-      dark.style.display = "none"
+      popupcustomer.style.display = "block"
+      dark.style.display = "block"
     })
+  })
+
+  cancelcustBtn.addEventListener("click", function (e) {
+    e.preventDefault()
+    popupcustomer.style.display = "none"
+    dark.style.display = "none"
+  })
 
   // випадаючі блоки з інформацією
   function toggleVisibility(buttons, visibleClass, activeClass) {
@@ -569,6 +569,216 @@ document.addEventListener("DOMContentLoaded", function () {
   let sliderInterval = setTimeout(function () {
     initSlider()
   }, 50);
+
+
+  const phoneInput = document.querySelectorAll('.phoneInput');
+
+  phoneInput.forEach(item => {
+    item.addEventListener('input', function () {
+      let phoneNumber = item.value.trim();
+      const mask = "+3";
+
+      if (!phoneNumber.startsWith(mask)) {
+        phoneNumber = mask + phoneNumber;
+      }
+
+      let cleanedValue = phoneNumber.replace(/[^\d+]/g, "");
+
+      if (cleanedValue.length > 13) {
+        cleanedValue = cleanedValue.slice(0, 13);
+      }
+
+      const validInput = isValidPhoneNumber(cleanedValue);
+
+      if (validInput) {
+        item.style.borderColor = 'green';
+        item.style.color = '#121212';
+        errorTel.forEach(item => item.innerText = "");
+      } else {
+        item.style.borderColor = '#EB4242';
+        item.style.color = '#EB4242';
+        // errorTel.forEach(item => item.innerText = "Введіть коректний номер телефону");
+      }
+    });
+  });
+
+  // Перевірка всіх полів e-mail
+  const emailInputs = document.querySelectorAll("input[name='email']"),
+  emailPattern = /^[a-zA-Z][a-zA-Z0-9_-]+[a-zA-Z0-9]@([a-z_-]+(\.\w+)?(\.\w{2,3}))$/;
+
+  emailInputs.forEach(input => {
+    input.addEventListener("input", function (e) {
+      console.log(input);
+      const emailValue = input.value.trim();
+      if (!emailPattern.test(emailValue)) {
+        // errorEmail.forEach(item => item.innerText = "Введіть коректний e-mail");
+        input.style.borderColor = '#EB4242';
+        input.style.color = '#EB4242';
+        return false;
+      } else {
+        input.style.borderColor = 'green';
+        input.style.color = '#121212';
+        // errorEmail.forEach(item => item.innerText = "");
+      }
+    })
+  });
+
+
+  function validateForm(form) {
+    const phoneInput = form.querySelector("input[name='userPhone']");
+    const phoneNumber = phoneInput.value.trim();
+
+    if (!phoneNumber || !isValidPhoneNumber(phoneNumber) || phoneNumber.length < 13) {
+      // errorTel.forEach(item => item.innerText = "Введіть коректний номер телефону");
+      return false;
+    }
+
+
+
+    return true;
+  }
+
+  document.querySelectorAll("form[action='sendorder.php'], form[action='senddata.php'], form[action='sendcontact.php']").forEach(form => {
+    form.addEventListener("submit", (e) => {
+      if (!validateForm(form)) {
+        e.preventDefault();
+      }
+    });
+  });
+
+  function isValidPhoneNumber(phoneNumber) {
+    return /^\+(\d{10,13})$/.test(phoneNumber);
+  }
+
+  const inputMasks = document.querySelectorAll(".inputMask");
+
+  inputMasks.forEach(function (inputMask) {
+    inputMask.addEventListener("click", function () {
+      if (!inputMask.value) {
+        inputMask.value = "+3";
+      }
+    });
+
+    inputMask.addEventListener("input", function () {
+      let inputValue = inputMask.value,
+        cleanedValue = inputValue.replace(/[^\d+]/g, "");
+
+      inputMask.value = cleanedValue;
+
+      if (cleanedValue.length > 13) {
+        inputMask.value = cleanedValue.slice(0, 13);
+      }
+
+      if (!cleanedValue.startsWith("+3")) {
+        inputMask.value = "+3" + cleanedValue.slice(3);
+      }
+    });
+  });
+
+
+  // const phoneInput = document.querySelectorAll('.phoneInput')
+
+  // phoneInput.forEach(item => {
+  //   item.addEventListener('input', function () {
+  //     let phoneNumber = item.value.trim()
+  //     const mask = "+3"
+
+  //     if (!phoneNumber.startsWith(mask)) {
+  //       phoneNumber = mask + phoneNumber
+  //     }
+
+  //     let cleanedValue = phoneNumber.replace(/[^\d+]/g, "")
+
+  //     if (cleanedValue.length > 13) {
+  //       cleanedValue = cleanedValue.slice(0, 13)
+  //     }
+
+  //     const validInput = isValidPhoneNumber(cleanedValue)
+
+  //     if (validInput) {
+  //       item.style.borderColor = 'green'
+  //       item.style.color = '#121212'
+
+  //       errorTel.forEach(item => {
+  //         item.innerText = ""
+  //       })
+  //     } else {
+  //       item.style.borderColor = '#EB4242'
+  //       item.style.color = '#EB4242'
+  //       errorTel.forEach(item => {
+  //         item.innerText = "Введіть коректний номер телефону"
+  //       })
+  //     }
+  //   })
+  // })
+
+  // function validateForm(form) {
+  //   const phoneInput = form.querySelector("input[name='userPhone']"),
+  //     phoneNumber = phoneInput.value.trim()
+
+  //   if (!phoneNumber || !isValidPhoneNumber(phoneNumber) || phoneNumber.length < 13) {
+  //     errorTel.forEach(item => {
+  //       item.innerText = "Введіть коректний номер телефону"
+  //     })
+  //     return false
+  //   }
+
+  //   const inputFields = form.querySelectorAll("input[name='userName']")
+  //   for (const inputField of inputFields) {
+  //     const userInput = inputField.value.trim()
+  //     if (userInput.length < 3) {
+  //       errorName.forEach(item => {
+  //         item.innerText = 'Мінімальна кількість символів для імені: 3'
+  //       })
+  //       return false
+  //     }
+  //     if (userInput.length > 30) {
+  //       errorName.forEach(item => {
+  //         item.innerText = 'Максимальна кількість символів для імені: 30'
+  //       })
+  //       return false
+  //     }
+  //   }
+  //   return true
+  // }
+
+  // document.querySelectorAll("form[action='sendorder.php'], form[action='senddata.php'], form[action='sendcontact.php']").forEach(form => {
+  //   form.addEventListener("submit", (e) => {
+  //     if (!validateForm(form)) {
+  //       e.preventDefault()
+  //     }
+  //   })
+  // })
+
+
+  // function isValidPhoneNumber(phoneNumber) {
+  //   return /^\+(\d{10,13})$/.test(phoneNumber)
+  // }
+
+  // const inputMasks = document.querySelectorAll(".inputMask");
+
+  // inputMasks.forEach(function (inputMask) {
+  //   inputMask.addEventListener("click", function () {
+  //     if (!inputMask.value) {
+  //       inputMask.value = "+3";
+  //     }
+  //   })
+
+  //   inputMask.addEventListener("input", function () {
+  //     let inputValue = inputMask.value,
+  //       cleanedValue = inputValue.replace(/[^\d+]/g, "")
+
+  //     inputMask.value = cleanedValue;
+
+  //     if (cleanedValue.length > 13) {
+  //       inputMask.value = cleanedValue.slice(0, 13);
+  //     }
+
+  //     if (!cleanedValue.startsWith("+3")) {
+  //       inputMask.value = "+3" + cleanedValue.slice(3);
+  //     }
+  //   });
+  // });
 
 
 })

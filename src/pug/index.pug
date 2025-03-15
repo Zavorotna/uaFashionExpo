@@ -21,7 +21,7 @@ html(lang="en")
                 .grid.col-2
                     label
                         | Назва компанії*
-                        input(type="text" name="company" required)
+                        input(type="text" name="company" required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐs]/g, '')")
                     label  
                         | Країна/місто*
                         input(type='text' name='city' minlength='3' maxlength='30' required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐs]/g, '')")
@@ -37,31 +37,33 @@ html(lang="en")
                         input(type="text" name="email" required)
                     label
                         | Код ЄДРПОУ*
-                        input(type="text" name="code" required)
+                        input(type="text" name="code" required oninput="this.value = this.value.replace(/[^0-9+]/g, '')")
                 p 
                     label
                         | Номер свідоцтва платника податку*
-                        input(type="text" name="city" required)
+                        input(type="text" name="sertificat" required oninput="this.value = this.value.replace(/[^0-9+]/g, '')")
                 p 
                     label
                         | Продукція, яка буде представлена*
-                        input(type="text" name="city" required)
+                        input(type="text" name="products" required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐs]/g, '')")
                 .grid.col-2
                     .radio_btn 
                         p Тип площі:
-                        label
-                            input(type="radio", name="ploshcha" value="обладнана площа")
-                            | обладнана площа
-                        label
-                            input(type="radio", name="ploshcha" value="не обладнана площа")
-                            | не обладнана площа
+                            label.items-center
+                                input(type="radio", name="ploshcha" value="обладнана площа")
+                                span обладнана площа
+                            label.items-center
+                                input(type="radio", name="ploshcha" value="не обладнана площа")
+                                span не обладнана площа
                     p 
                         label
                             | Бажана квадратура стенду м2*
-                            input(type="text" name="stend" required)
-                p.flex.items-center 
-                    label
-                        input(type="checkbox", name="")
+                            input(type="text" name="stend" required oninput="this.value = this.value.replace(/[^0-9+]/g, '')")
+                p
+                    label.items-center.approve_container
+                        span.parent
+                            input(type="checkbox", name="approve" value="Даю згоду на обробку персональних даних" checked).approve
+                            span
                         | Даю згоду на обробку персональних даних
                 button(type="submit").cta.blue_cta відправити
 
@@ -76,7 +78,7 @@ html(lang="en")
                 .grid.col-2
                     label
                         | Прізвище*
-                        input(type="text" name="surname" required)
+                        input(type="text" name="surname" required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐs]/g, '')")
                     label(for='name')  
                         | Імʼя*
                         input#name(type='text' name='userName' minlength='3' maxlength='30' required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐs]/g, '')")
@@ -89,10 +91,12 @@ html(lang="en")
                 p 
                     label
                         | Місто/селище*
-                        input(type="text" name="city" required)
-                p.flex.items-center 
-                    label
-                        input(type="checkbox", name="")
+                        input(type="text" name="city" required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐs]/g, '')")
+                p
+                    label.items-center.approve_container
+                        span.parent
+                            input(type="checkbox", name="approve" value="Даю згоду на обробку персональних даних" checked).approve
+                            span
                         | Даю згоду на обробку персональних даних
                 button(type="submit").cta.blue_cta відправити
 
@@ -378,13 +382,13 @@ html(lang="en")
                     <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1V2EHGU44LQ86vnTuodCJxZoo61qibBg&ehbc=2E312F"></iframe>
             section.partners_bottom 
                 .wrapper.grid.col_2_partners
-                    h2 партнери:
+                    h2.flex.items-center партнери:
                     div.partners_block
                         div.flex.partner_col
                             +participantsItem("img/arena_expo_shoes_white.png")
                             +participantsItem("img/Arena_lviv.png")
                             +participantsItem("img/ukrane_fashion_store_white.png")
-                        div.flex.partner_col
+                        //- div.flex.partner_col
 
         include components/footer
         script(src="js/scripts.js") 
