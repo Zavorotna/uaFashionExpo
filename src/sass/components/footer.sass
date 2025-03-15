@@ -56,6 +56,7 @@
 .partners_bottom
     +media(768)
         border-top: 1px solid $black
+        max-height: 100px
 
 .col_2_partners
     h2
@@ -84,19 +85,18 @@
     +media(768)
         border-top: none
     +media(1024)
+        grid-template-columns: repeat(3, 158px)
         // height: 100px
     div
         display: flex
-        // width: 29.4vw
-        // height:20vw
         padding: 15rem
         align-items: center
         justify-content: center
         border-right: 1px solid $black            
         +media(768)
-            min-width: 120px
+            max-width: 158px
             max-height: 100px
-            padding: 10rem    
+            padding: 20rem    
         picture
             display: block
             width: 100%
