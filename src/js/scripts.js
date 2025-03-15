@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   //privacy
+  let dark= document.querySelector(".dark-bgc")
   const privacy = document.querySelector(".privacy_page"),
-    privacyBtn = document.querySelector(".privacyPolice")
+    privacyBtn = document.querySelector(".privacyPolice"),
+    cancelPopup = document.querySelector(".cancel_popup")
 
   privacyBtn.addEventListener("click", function (e) {
     e.preventDefault()
@@ -9,10 +11,14 @@ document.addEventListener("DOMContentLoaded", function () {
     dark.style.display = "block"
   })
 
+  cancelPopup.addEventListener("click", function(e){
+    e.preventDefault()
+    privacy.style.display = "none"
+    dark.style.display = "none"
+  })
+
   // burger
-  let dark
   if (document.querySelector(".burger")) {
-    dark = document.querySelector(".dark-bgc")
     const burger = document.querySelector(".burger"),
       menu = document.querySelector(".nav"),
       cancel = document.querySelector(".cancel"),
@@ -26,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function cancelBurger() {
       menu.style.right = "-100%";
       dark.style.display = "none"
-      privacy.style.display = "none"
     }
     listItem.forEach(item => {
       item.addEventListener("click", cancelBurger)
