@@ -9,12 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault()
     privacy.style.display = "block"
     dark.style.display = "block"
+    privacy.classList.add("jello-animation")
   })
-
+  
   cancelPopup.addEventListener("click", function(e){
     e.preventDefault()
     privacy.style.display = "none"
     dark.style.display = "none"
+    privacy.classList.remove("jello-animation")
   })
 
   // burger
