@@ -637,9 +637,6 @@ img
         &:checked
             background-color: $black
 
-.header-animation
-    animation: pulse 1.5s 1s ease-in-out infinite alternate
-
 .jello-animation 
     animation: jello 0.8s ease-in-out
 
@@ -660,17 +657,6 @@ img
         transform: translate(-50%, -50%) skewX(0.390625deg) skewY(0.390625deg)
     88.8% 
         transform: translate(-50%, -50%) skewX(-0.1953125deg) skewY(-0.1953125deg)
-    
-@keyframes pulse
-    0% 
-        transform: scaleX(1)
-    50% 
-        transform: scale3d(1.05,1.05,1.05)
-    to 
-        transform: scaleX(1)
-    
-    
-
 
 @import components/info
 @import components/footer
