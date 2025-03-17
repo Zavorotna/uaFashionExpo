@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault()
       popupVisitor.style.display = "block"
       darkPopup.style.display = "block"
+      popupVisitor.classList.add("jello-animation")
     })
   })
 
@@ -60,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault()
     popupVisitor.style.display = "none"
     darkPopup.style.display = "none"
+    popupVisitor.classList.remove("jello-animation")
   })
 
   const customersBtn = document.querySelectorAll(".customers"),
@@ -71,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault()
       popupcustomer.style.display = "block"
       darkPopup.style.display = "block"
+      popupcustomer.classList.add("jello-animation")
     })
   })
 
@@ -80,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
     darkPopup.style.display = "none"
     dark.style.display = "none"
     privacy.style.display = "none"
+    popupcustomer.classList.remove("jello-animation")
   })
 
 
