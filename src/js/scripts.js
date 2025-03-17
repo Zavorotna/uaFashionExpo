@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   //privacy
-  let dark= document.querySelector(".dark-bgc")
-  const privacy = document.querySelector(".privacy_page"),
+  const dark = document.querySelector(".dark-bgc"),
+    privacy = document.querySelector(".privacy_page"),
     privacyBtn = document.querySelector(".privacyPolice"),
     cancelPopup = document.querySelector(".cancel_popup")
 
@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function cancelBurger() {
       menu.style.right = "-100%";
       dark.style.display = "none"
+      privacy.style.display = "none"
     }
     listItem.forEach(item => {
       item.addEventListener("click", cancelBurger)
