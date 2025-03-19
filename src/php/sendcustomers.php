@@ -9,6 +9,7 @@
         $sertificat = $_POST["sertificat"];
         $products = $_POST["products"];
         $ploshcha = $_POST["ploshcha"];
+        $fop = $_POST["fop"];
         $stend = $_POST["stend"];
         $approve = $_POST["approve"];
     } catch (\Throwable $th) {
@@ -16,6 +17,7 @@
         $userName = "ERROR IN MESSAGE";
         $nameCompany = "ERROR IN MESSAGE";
         $email = "ERROR IN MESSAGE";
+        $fop = "ERROR IN MESSAGE";
         $city = "ERROR IN MESSAGE";
         $code = "ERROR IN MESSAGE";
         $products = "ERROR IN MESSAGE";
@@ -36,6 +38,7 @@
     $products = urlencode("$products");
     $ploshcha = urlencode("$ploshcha");
     $stend = urlencode("$stend");
+    $fop = urlencode("$fop");
     $sertificat = urlencode("$sertificat");
     $email = urlencode("$email");
     $city = urlencode("$city");
@@ -48,6 +51,7 @@
         "Контактна особа: <b>$userName</b>%0A" .
         "Країна/місто*: <b>$city</b>%0A" .
         "Телефон: <b>$userPhone</b>%0A" .
+        "ФОП: <b>$fop</b>%0A" .
         "Емейл: <b>$email</b>%0A" .
         "Код ЄДРПОУ: <b>$code</b>%0A" .
         "Номер свідоцтва платника податку: <b>$sertificat</b>%0A" .

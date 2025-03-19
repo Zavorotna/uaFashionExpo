@@ -507,8 +507,16 @@ img
     right: 5%
     transform: translateY(-200%) scaleX(-1)
     background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2211%22%20height%3D%2218%22%20viewBox%3D%220%200%2011%2018%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M10%2017L2%209L10%201%22%20stroke%3D%22%23222222%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E")
-
-.popup
+.successPopup
+    width: 90vw
+    text-align: center
+    transition: all 1s ease
+    +media(768)
+        width: 40vw 
+    div
+        padding-bottom: 20px
+.popup,
+.successPopup
     display: none
     padding: 50rem 30rem
     position: fixed
@@ -601,8 +609,8 @@ img
     +media(1024)
         max-width: 50vw
     +media(1440)
-        max-width: 607px
-        max-height: 800px
+        max-width: 608px
+        max-height: 50vw
 
 .cancel_popup_vis,
 .cancel_popup_cust,

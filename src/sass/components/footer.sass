@@ -68,7 +68,7 @@
             text-align: left
     +media(768)
         grid-template-columns: 22vw 60vw
-    +media(1520)
+    +media(1920)
         grid-template-columns: 250px 1257px
         
 .partners_block
@@ -82,7 +82,9 @@
     +media(768)
         border-top: none
     +media(1440)
-        grid-template-columns: repeat(3, 307px)
+        grid-template-columns: repeat(4, 1fr)
+    +media(1920)
+        grid-template-columns: repeat(4, 307px)
     div
         display: flex
         padding: 15rem

@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     dark.style.display = "block"
     privacy.classList.add("jello-animation")
   })
-  
-  cancelPopup.addEventListener("click", function(e){
+
+  cancelPopup.addEventListener("click", function (e) {
     e.preventDefault()
     privacy.style.display = "none"
     dark.style.display = "none"
@@ -89,6 +89,46 @@ document.addEventListener("DOMContentLoaded", function () {
     popupcustomer.classList.remove("jello-animation")
   })
 
+
+  const forms = document.querySelectorAll("form"),
+    succesPopup = document.querySelector("#successPopup"),
+    darkSucces = document.querySelector(".dark-succes")
+
+  succesPopup.style.transition = "opacity 0.5s ease"
+  succesPopup.style.opacity = "0"
+
+  darkSucces.style.transition = "opacity 0.5s ease"
+  darkSucces.style.opacity = "0"
+
+  forms.forEach(form => {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault()
+      darkPopup.style.display = "none"
+      popupVisitor.style.display = "none"
+      popupcustomer.style.display = "none"
+      succesPopup.style.display = "block"
+      darkSucces.style.display = "block"
+
+      setTimeout(() => {
+        succesPopup.style.opacity = "1"
+        succesPopup.style.visibility = "visible"
+        darkSucces.style.opacity = "1"
+      }, 10)
+
+      setTimeout(() => {
+        succesPopup.style.opacity = "0"
+        succesPopup.style.visibility = "hidden"
+        darkSucces.style.opacity = "0"
+
+        setTimeout(() => {
+          darkSucces.style.display = "none"
+          succesPopup.style.display = "none"
+        }, 500)
+
+        form.submit()
+      }, 4000)
+    })
+  })
 
 
   // випадаючі блоки з інформацією
