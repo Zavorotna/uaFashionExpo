@@ -49,14 +49,14 @@ html(lang="en")
                 .grid.col-2
                     label
                         | Назва компанії*
-                        input(type="text" name="company" required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐs]/g, '')")
+                        input(type="text" name="company" required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐ ]/g, '')")
                     label  
                         | Країна/місто*
-                        input(type='text' name='city' minlength='3' maxlength='30' required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐs]/g, '')")
+                        input(type='text' name='city' minlength='3' maxlength='30' required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐ ]/g, '')")
                 .grid.col-2
                     label(for='name')  
                         | Контактна особа*
-                        input#name(type='text' name='userName' minlength='3' maxlength='30' required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐs]/g, '')")
+                        input#name(type='text' name='userName' minlength='3' maxlength='30' required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐ ]/g, '')")
                     label(for='phone') Телефон*
                         input.phoneInput.inputMask(type='tel' name='userPhone' required maxlength='13')
                 .grid.col-2
@@ -73,7 +73,7 @@ html(lang="en")
                 p 
                     label
                         | Продукція, яка буде представлена*
-                        input(type="text" name="products" required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐs]/g, '')")
+                        input(type="text" name="products" required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐ ]+/g, '')")
                 .grid.col-2
                     .radio_btn 
                         p Тип площі:
@@ -119,7 +119,7 @@ html(lang="en")
                 p 
                     label
                         | Місто/селище*
-                        input(type="text" name="city" required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐs]/g, '')")
+                        input(type="text" name="city" required oninput="this.value = this.value.replace(/[^a-zA-Zа-яА-ЯїЇєЄіІґҐ ]/g, '')")
                 p
                     label.items-center.approve_container
                         span.parent
