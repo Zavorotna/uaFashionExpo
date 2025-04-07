@@ -5,9 +5,15 @@ mixin clothingItem(imageSrc, altText, label)
             img(src=imageSrc, alt=altText)
         p.abs_text= label
 
+
+
 mixin participantsItem(imageSrc, altText, label)
     div
         picture
             img(src=imageSrc, alt=altText)
         if(label)
-            p= label
+            if (label == "LILIYA")
+                p.abs_text= label
+                    span.tiny_text Китай
+            else 
+                p.abs_text= label
