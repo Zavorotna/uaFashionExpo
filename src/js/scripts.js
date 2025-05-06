@@ -99,7 +99,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   darkSucces.style.transition = "opacity 0.5s ease"
   darkSucces.style.opacity = "0"
-
   forms.forEach(form => {
     form.addEventListener("submit", function (e) {
       e.preventDefault()
@@ -661,15 +660,20 @@ document.addEventListener("DOMContentLoaded", function () {
       if (validInput) {
         item.style.borderColor = 'green';
         item.style.color = '#121212';
-        errorTel.forEach(item => item.innerText = "");
+        document.querySelectorAll("form[action='sendcustomers.php'] > button, form[action='sendvisitors.php'] > button").forEach(form => {
+          form.removeAttribute("disabled")
+        });
       } else {
         item.style.borderColor = '#EB4242';
         item.style.color = '#EB4242';
-        // errorTel.forEach(item => item.innerText = "Введіть коректний номер телефону");
+        document.querySelectorAll("form[action='sendcustomers.php'] > button, form[action='sendvisitors.php'] > button").forEach(form => {
+          form.setAttribute('disabled', true)
+        });
       }
     });
   });
-
+  
+  console.log(document.querySelectorAll("form[action='sendcustomers.php'], form[action='sendvisitors.php']"));
   // Перевірка всіх полів e-mail
   const emailInputs = document.querySelectorAll("input[name='email']"),
     emailPattern = /^[a-zA-Z][a-zA-Z0-9_-]+[a-zA-Z0-9]@([a-z_-]+(\.\w+)?(\.\w{2,3}))$/;
@@ -694,20 +698,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function validateForm(form) {
     const phoneInput = form.querySelector("input[name='userPhone']");
-    const phoneNumber = phoneInput.value.trim();
+      const phoneNumber = phoneInput.value.trim();
+      
+      console.log(phoneNumber);
+      if (!phoneNumber || !isValidPhoneNumber(phoneNumber) || phoneNumber.length < 13) {
+        // errorTel.forEach(item => item.innerText = "Введіть коректний номер телефону");
+        
+        return false;
+      }
+      return true;
 
-    if (!phoneNumber || !isValidPhoneNumber(phoneNumber) || phoneNumber.length < 13) {
-      // errorTel.forEach(item => item.innerText = "Введіть коректний номер телефону");
-      return false;
-    }
-
-
-
-    return true;
   }
-
-  document.querySelectorAll("form[action='sendorder.php'], form[action='senddata.php'], form[action='sendcontact.php']").forEach(form => {
+  
+  document.querySelectorAll("form[action='sendcustomers.php'], form[action='sendvisitors.php']").forEach(form => {
     form.addEventListener("submit", (e) => {
+      // e.preventDefault()
       if (!validateForm(form)) {
         e.preventDefault();
       }
@@ -742,111 +747,5 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-
-
-  // const phoneInput = document.querySelectorAll('.phoneInput')
-
-  // phoneInput.forEach(item => {
-  //   item.addEventListener('input', function () {
-  //     let phoneNumber = item.value.trim()
-  //     const mask = "+3"
-
-  //     if (!phoneNumber.startsWith(mask)) {
-  //       phoneNumber = mask + phoneNumber
-  //     }
-
-  //     let cleanedValue = phoneNumber.replace(/[^\d+]/g, "")
-
-  //     if (cleanedValue.length > 13) {
-  //       cleanedValue = cleanedValue.slice(0, 13)
-  //     }
-
-  //     const validInput = isValidPhoneNumber(cleanedValue)
-
-  //     if (validInput) {
-  //       item.style.borderColor = 'green'
-  //       item.style.color = '#121212'
-
-  //       errorTel.forEach(item => {
-  //         item.innerText = ""
-  //       })
-  //     } else {
-  //       item.style.borderColor = '#EB4242'
-  //       item.style.color = '#EB4242'
-  //       errorTel.forEach(item => {
-  //         item.innerText = "Введіть коректний номер телефону"
-  //       })
-  //     }
-  //   })
-  // })
-
-  // function validateForm(form) {
-  //   const phoneInput = form.querySelector("input[name='userPhone']"),
-  //     phoneNumber = phoneInput.value.trim()
-
-  //   if (!phoneNumber || !isValidPhoneNumber(phoneNumber) || phoneNumber.length < 13) {
-  //     errorTel.forEach(item => {
-  //       item.innerText = "Введіть коректний номер телефону"
-  //     })
-  //     return false
-  //   }
-
-  //   const inputFields = form.querySelectorAll("input[name='userName']")
-  //   for (const inputField of inputFields) {
-  //     const userInput = inputField.value.trim()
-  //     if (userInput.length < 3) {
-  //       errorName.forEach(item => {
-  //         item.innerText = 'Мінімальна кількість символів для імені: 3'
-  //       })
-  //       return false
-  //     }
-  //     if (userInput.length > 30) {
-  //       errorName.forEach(item => {
-  //         item.innerText = 'Максимальна кількість символів для імені: 30'
-  //       })
-  //       return false
-  //     }
-  //   }
-  //   return true
-  // }
-
-  // document.querySelectorAll("form[action='sendorder.php'], form[action='senddata.php'], form[action='sendcontact.php']").forEach(form => {
-  //   form.addEventListener("submit", (e) => {
-  //     if (!validateForm(form)) {
-  //       e.preventDefault()
-  //     }
-  //   })
-  // })
-
-
-  // function isValidPhoneNumber(phoneNumber) {
-  //   return /^\+(\d{10,13})$/.test(phoneNumber)
-  // }
-
-  // const inputMasks = document.querySelectorAll(".inputMask");
-
-  // inputMasks.forEach(function (inputMask) {
-  //   inputMask.addEventListener("click", function () {
-  //     if (!inputMask.value) {
-  //       inputMask.value = "+3";
-  //     }
-  //   })
-
-  //   inputMask.addEventListener("input", function () {
-  //     let inputValue = inputMask.value,
-  //       cleanedValue = inputValue.replace(/[^\d+]/g, "")
-
-  //     inputMask.value = cleanedValue;
-
-  //     if (cleanedValue.length > 13) {
-  //       inputMask.value = cleanedValue.slice(0, 13);
-  //     }
-
-  //     if (!cleanedValue.startsWith("+3")) {
-  //       inputMask.value = "+3" + cleanedValue.slice(3);
-  //     }
-  //   });
-  // });
-
 
 })
