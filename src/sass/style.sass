@@ -211,7 +211,7 @@ img
     display: block
     padding-top: 30rem
     +media(1024)
-        padding-top: 150rem
+        padding-top: 80rem
         display: flex
         column-gap: 50rem
     p
@@ -258,19 +258,31 @@ img
                     padding: 0 45rem
     p + p
         border-left: 1px solid $black
-
+.reverse
+    display: flex
+    flex-direction: column
+    +media(1024)
+        flex-direction: column-reverse
 .mobile_inst
     padding: 47rem 0 0 0
     p
-        font-size: 12px
+        font-size: 15px
         text-transform: uppercase
-        gap: 15px
         justify-content: center
+        gap: 15px
+        +media(1024)
+            font-size: 20px
+            justify-content: flex-start
         a
             text-transform: none
             color: $white
             gap: 5px
-
+            svg
+                width: 15px
+                height: 15px
+                +media(1024)
+                    width: 20px
+                    height: 20px
 .pad-100
     padding: 40rem 0
     h2 
