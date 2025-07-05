@@ -144,7 +144,8 @@ header
 
 .dark-bgc,
 .dark-bgc-popup,
-.dark-succes
+.dark-succes,
+.dark-shema
     display: none
     position: fixed
     top: 0
@@ -154,9 +155,17 @@ header
     background-color: $gray
     backdrop-filter: blur(4px)
     z-index: 3
+.zoom 
+    position: absolute
+    bottom: 0
+    right: 10px
 
-    
-
+.unzoom
+    display: none
+    position: fixed
+    bottom: 20px
+    right: 20px
+    z-index: 50
 .burger 
     width: 30px
     height: 100%

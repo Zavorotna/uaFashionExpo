@@ -1,10 +1,58 @@
 document.addEventListener("DOMContentLoaded", function () {
+  //shema
+  const shemaBtn = document.querySelector(".shema"),
+    shemaPopup = document.querySelector(".shema_popup"),
+    cancelShema = document.querySelector(".cancel_shema"),
+    dark = document.querySelector(".dark-bgc"),
+    darkShema = document.querySelector(".dark-shema"),
+    zoom = document.querySelector(".zoom"),
+    unzoom = document.querySelector(".unzoom")
+
+  shemaBtn.addEventListener("click", function (e) {
+    e.preventDefault()
+    shemaPopup.style.display = "block"
+    darkShema.style.display = "block"
+    shemaPopup.classList.add("jello-animation")
+  })
+
+  cancelShema.addEventListener("click", function (e) {
+    e.preventDefault()
+    shemaPopup.style.display = "none"
+    darkShema.style.display = "none"
+    shemaPopup.classList.remove("jello-animation")
+  })
+
+  zoom.addEventListener("click", function (e) {
+    e.preventDefault()
+    shemaPopup.classList.add("zoomed")
+    const img = shemaPopup.querySelector("img")
+    if(window.innerWidth < 768) {
+      img.style.width = "300vh"
+    } else {
+      img.style.width = "200vh"
+    }
+    shemaPopup.style.padding = "0"
+    cancelShema.style.display = "none"
+    zoom.style.display = "none"
+    unzoom.style.display = "block"
+  })
+  
+  unzoom.addEventListener("click", function (e) {
+    e.preventDefault();
+    shemaPopup.classList.remove("zoomed");
+    const img = shemaPopup.querySelector("img");
+    shemaPopup.style.padding = "50px"
+    img.style.width = "auto";
+    zoom.style.display = "block"
+    cancelShema.style.display = "block"
+    unzoom.style.display = "none"
+  });
+
+
   //privacy
-  const dark = document.querySelector(".dark-bgc"),
-    privacy = document.querySelector(".privacy_page"),
+  const privacy = document.querySelector(".privacy_page"),
     privacyBtn = document.querySelector(".privacyPolice"),
     cancelPopup = document.querySelector(".cancel_popup")
-
   privacyBtn.addEventListener("click", function (e) {
     e.preventDefault()
     privacy.style.display = "block"
@@ -672,7 +720,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-  
+
   console.log(document.querySelectorAll("form[action='sendcustomers.php'], form[action='sendvisitors.php']"));
   // Перевірка всіх полів e-mail
   const emailInputs = document.querySelectorAll("input[name='email']"),
@@ -698,18 +746,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function validateForm(form) {
     const phoneInput = form.querySelector("input[name='userPhone']");
-      const phoneNumber = phoneInput.value.trim();
-      
-      console.log(phoneNumber);
-      if (!phoneNumber || !isValidPhoneNumber(phoneNumber) || phoneNumber.length < 13) {
-        // errorTel.forEach(item => item.innerText = "Введіть коректний номер телефону");
-        
-        return false;
-      }
-      return true;
+    const phoneNumber = phoneInput.value.trim();
+
+    console.log(phoneNumber);
+    if (!phoneNumber || !isValidPhoneNumber(phoneNumber) || phoneNumber.length < 13) {
+      // errorTel.forEach(item => item.innerText = "Введіть коректний номер телефону");
+
+      return false;
+    }
+    return true;
 
   }
-  
+
   document.querySelectorAll("form[action='sendcustomers.php'], form[action='sendvisitors.php']").forEach(form => {
     form.addEventListener("submit", (e) => {
       // e.preventDefault()
