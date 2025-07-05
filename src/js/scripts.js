@@ -27,11 +27,13 @@ document.addEventListener("DOMContentLoaded", function () {
     shemaPopup.classList.add("zoomed")
     const img = shemaPopup.querySelector("img")
     if(window.innerWidth < 768) {
-      img.style.width = "300vh"
+      img.style.width = "300vw"
     } else {
-      img.style.width = "200vh"
+      img.style.width = "150%"
     }
     shemaPopup.style.padding = "0"
+    shemaPopup.style.width = "100vw"
+    shemaPopup.style.height = "100vh"
     cancelShema.style.display = "none"
     zoom.style.display = "none"
     unzoom.style.display = "block"
@@ -41,8 +43,10 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
     shemaPopup.classList.remove("zoomed");
     const img = shemaPopup.querySelector("img");
-    shemaPopup.style.padding = "50px"
-    img.style.width = "auto";
+    shemaPopup.style.padding = "20px"
+    shemaPopup.style.width = "90vw"
+    shemaPopup.style.height = "auto"
+    img.style.width = "100%";
     zoom.style.display = "block"
     cancelShema.style.display = "block"
     unzoom.style.display = "none"
