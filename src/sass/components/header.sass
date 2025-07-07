@@ -155,17 +155,24 @@ header
     background-color: $gray
     backdrop-filter: blur(4px)
     z-index: 3
+
 .zoom 
     position: absolute
     bottom: 0
     right: 10px
 
-.unzoom
+.unzoom,
+.cancel_fixed
     display: none
     position: fixed
-    bottom: 20px
     right: 20px
     z-index: 50
+
+.unzoom
+    bottom: 20px
+
+.cancel_fixed
+    top: 20px
 .burger 
     width: 30px
     height: 100%

@@ -6,24 +6,28 @@ document.addEventListener("DOMContentLoaded", function () {
     dark = document.querySelector(".dark-bgc"),
     darkShema = document.querySelector(".dark-shema"),
     zoom = document.querySelector(".zoom"),
-    unzoom = document.querySelector(".unzoom")
+    unzoom = document.querySelector(".unzoom"),
+    cancelFixed = document.querySelector(".cancel_fixed")
 
   shemaBtn.addEventListener("click", function (e) {
     e.preventDefault()
+
     shemaPopup.style.display = "block"
     darkShema.style.display = "block"
     shemaPopup.classList.add("jello-animation")
   })
 
-  cancelShema.addEventListener("click", function (e) {
-    e.preventDefault()
+  function cancelShemaPopup() {
     shemaPopup.style.display = "none"
     darkShema.style.display = "none"
     shemaPopup.classList.remove("jello-animation")
-  })
+  }
+
+  cancelShema.addEventListener("click", cancelShemaPopup)
 
   zoom.addEventListener("click", function (e) {
     e.preventDefault()
+
     shemaPopup.classList.add("zoomed")
     const img = shemaPopup.querySelector("img")
     if(window.innerWidth < 768) {
@@ -38,10 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
     cancelShema.style.display = "none"
     zoom.style.display = "none"
     unzoom.style.display = "block"
+    cancelFixed.style.display = "block"
   })
   
-  unzoom.addEventListener("click", function (e) {
-    e.preventDefault();
+  function unzoomShema () {
     shemaPopup.classList.remove("zoomed");
     const img = shemaPopup.querySelector("img");
     shemaPopup.style.padding = "20px"
@@ -51,7 +55,19 @@ document.addEventListener("DOMContentLoaded", function () {
     zoom.style.display = "block"
     cancelShema.style.display = "block"
     unzoom.style.display = "none"
+    cancelFixed.style.display = "none"
+  }
+  unzoom.addEventListener("click", function (e) {
+    e.preventDefault();
+    unzoomShema()
   });
+  
+  cancelFixed.addEventListener("click", function(e){
+    e.preventDefault()
+    unzoomShema()
+    cancelShemaPopup()
+
+  })
 
 
   //privacy
