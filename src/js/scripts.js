@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
       img.style.width = "300vw"
     } else {
       img.style.width = "150%"
+      img.style.height = "150%"
     }
     shemaPopup.style.padding = "0"
     shemaPopup.style.width = "100vw"
