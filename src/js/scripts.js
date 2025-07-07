@@ -66,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault()
     unzoomShema()
     cancelShemaPopup()
-
   })
 
 
